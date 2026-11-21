@@ -1,1 +1,237 @@
 
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarkari Form Kendra | Latest Jobs & Results</title>
+<meta name="description" content="Latest Government Jobs, Online Forms, Admit Cards and Results.">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f7ff;color:#18365f}
+header{background:#174a91;color:white;padding:20px;text-align:center}
+header h1{margin:0;font-size:27px}
+header p{margin:7px 0 0}
+nav{background:white;padding:12px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;box-shadow:0 2px 8px #ddd}
+nav button{border:0;background:#e8f1ff;color:#174a91;padding:10px 14px;border-radius:6px;cursor:pointer;font-weight:bold}
+nav button:hover{background:#174a91;color:white}
+.hero{background:linear-gradient(120deg,#174a91,#3180d4);color:white;text-align:center;padding:40px 15px}
+.hero h2{font-size:30px;margin:0 0 12px}
+.search{width:min(550px,95%);padding:13px;border:0;border-radius:7px;margin-top:12px}
+.container{max-width:1100px;margin:25px auto;padding:0 15px}
+h2.section{border-left:5px solid #174a91;padding-left:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{background:white;padding:18px;border-radius:10px;box-shadow:0 3px 12px #dce6f5}
+.card h3{margin-top:0;color:#174a91}
+.card a{display:inline-block;background:#174a91;color:white;padding:9px 13px;border-radius:5px;text-decoration:none;margin-top:10px}
+footer{background:#10376d;color:white;text-align:center;padding:22px;margin-top:40px}
+#admin{display:none;background:white;padding:20px;border-radius:10px;margin-top:20px}
+input,textarea,select{width:100%;padding:11px;margin:7px 0 13px;border:1px solid #ccd7e8;border-radius:5px}
+.action{background:#174a91;color:white;border:0;padding:11px 18px;border-radius:5px;cursor:pointer}
+.danger{background:#b42318;color:white;border:0;padding:8px;border-radius:5px;cursor:pointer}
+.post{border-bottom:1px solid #ddd;padding:10px 0}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🇮🇳 SARKARI FORM KENDRA</h1>
+<p>Latest Jobs | Online Forms | Results | Admit Cards</p>
+</header>
+
+<nav>
+<button onclick="showCategory('All')">Home</button>
+<button onclick="showCategory('Latest Jobs')">Latest Jobs</button>
+<button onclick="showCategory('Online Form')">Online Form</button>
+<button onclick="showCategory('Offline Form')">Offline Form</button>
+<button onclick="showCategory('Admit Card')">Admit Card</button>
+<button onclick="showCategory('Result')">Results</button>
+<button onclick="showCategory('Answer Key')">Answer Key</button>
+<button onclick="showCategory('Syllabus')">Syllabus</button>
+<button onclick="document.getElementById('login').style.display='block'">Admin Login</button>
+</nav>
+
+<section class="hero">
+<h2>Find Your Dream Government Job</h2>
+<p>हर सरकारी नौकरी की जानकारी एक ही जगह</p>
+<input class="search" id="search" placeholder="Search Jobs, Results..." oninput="renderPosts()">
+</section>
+
+<div class="container">
+<h2 class="section" id="heading">Latest Updates</h2>
+<div class="grid" id="posts">
+<p>Loading...</p>
+</div>
+
+<div id="login" style="display:none" class="card">
+<h2>Admin Login</h2>
+<input type="email" id="email" placeholder="Admin Email">
+<input type="password" id="password" placeholder="Password">
+<button class="action" onclick="loginAdmin()">Login</button>
+<p id="loginStatus"></p>
+</div>
+
+<div id="admin">
+<h2>Admin Dashboard</h2>
+<p>नई भर्ती या अपडेट जोड़ें</p>
+<input id="title" placeholder="Post Title">
+<select id="category">
+<option>Latest Jobs</option>
+<option>Online Form</option>
+<option>Offline Form</option>
+<option>Admit Card</option>
+<option>Result</option>
+<option>Answer Key</option>
+<option>Syllabus</option>
+</select>
+<input id="lastDate" placeholder="Last Date (e.g. 30-11-2026)">
+<input id="qualification" placeholder="Qualification">
+<textarea id="description" placeholder="Post Details"></textarea>
+<input id="link" type="url" placeholder="Official Website Link">
+<button class="action" onclick="addPost()">Publish Post</button>
+<button class="action" onclick="logoutAdmin()">Logout</button>
+<p id="status"></p>
+<h3>Manage Posts</h3>
+<div id="manage"></div>
+</div>
+</div>
+
+<footer>
+© 2026 Sarkari Form Kendra | All Rights Reserved
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+apiKey: "AIzaSyA5i6t2gIQhJVu2E4YSoG8T9iIJr5xzJ0Q",
+authDomain: "sarkariformkendre.firebaseapp.com",
+projectId: "sarkariformkendre",
+storageBucket: "sarkariformkendre.firebasestorage.app",
+messagingSenderId: "851557797651",
+appId: "1:851557797651:web:71824466b97dbfe1a694e6",
+measurementId: "G-XJ6DP63K70"
+};
+
+firebase.initializeApp(firebaseConfig);
+const auth=firebase.auth();
+const db=firebase.firestore();
+
+let allPosts=[];
+let currentCategory="All";
+
+function escapeHTML(value){
+return String(value||"").replace(/[&<>"']/g,c=>({
+"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+}[c]));
+}
+
+function validLink(value){
+try{
+const u=new URL(value);
+return ["https:","http:"].includes(u.protocol)?u.href:"#";
+}catch(e){return "#";}
+}
+
+function showCategory(category){
+currentCategory=category;
+document.getElementById("heading").innerText=
+category==="All"?"Latest Updates":category;
+renderPosts();
+}
+
+db.collection("updates").orderBy("createdAt","desc")
+.onSnapshot(snapshot=>{
+allPosts=snapshot.docs.map(doc=>({id:doc.id,...doc.data()}));
+renderPosts();
+renderManage();
+},error=>{
+document.getElementById("posts").innerHTML=
+"<p>Database error. Firebase Rules check karein.</p>";
+console.error(error);
+});
+
+function renderPosts(){
+const q=document.getElementById("search").value.toLowerCase();
+const filtered=allPosts.filter(p=>
+(currentCategory==="All"||p.category===currentCategory)&&
+[p.title,p.description,p.qualification,p.category]
+.join(" ").toLowerCase().includes(q)
+);
+
+document.getElementById("posts").innerHTML=filtered.length?
+filtered.map(p=>`
+<div class="card">
+<h3>${escapeHTML(p.title)}</h3>
+<p><b>Category:</b> ${escapeHTML(p.category)}</p>
+<p><b>Last Date:</b> ${escapeHTML(p.lastDate||"Not specified")}</p>
+<p><b>Qualification:</b> ${escapeHTML(p.qualification||"See notification")}</p>
+<p>${escapeHTML(p.description)}</p>
+<a href="${escapeHTML(validLink(p.link||p.officialLink||''))}" target="_blank" rel="noopener">Official Link ↗</a>
+</div>`).join(""):"<p>No updates available.</p>";
+}
+
+function loginAdmin(){
+const email=document.getElementById("email").value.trim();
+const password=document.getElementById("password").value;
+auth.signInWithEmailAndPassword(email,password)
+.then(()=>document.getElementById("loginStatus").innerText="Login Successful")
+.catch(e=>document.getElementById("loginStatus").innerText=e.message);
+}
+
+auth.onAuthStateChanged(user=>{
+document.getElementById("admin").style.display=user?"block":"none";
+document.getElementById("login").style.display=user?"none":"none";
+if(user)renderManage();
+});
+
+async function addPost(){
+const user=auth.currentUser;
+if(!user){alert("Please login first");return;}
+
+const title=document.getElementById("title").value.trim();
+const link=validLink(document.getElementById("link").value.trim());
+if(!title||link==="#"){alert("Title aur valid official link bharein");return;}
+
+try{
+await db.collection("updates").add({
+title:title,
+category:document.getElementById("category").value,
+lastDate:document.getElementById("lastDate").value,
+qualification:document.getElementById("qualification").value,
+description:document.getElementById("description").value,
+link:link,
+createdAt:firebase.firestore.FieldValue.serverTimestamp(),
+createdBy:user.uid
+});
+document.getElementById("status").innerText="Post Published Successfully!";
+["title","lastDate","qualification","description","link"].forEach(id=>document.getElementById(id).value="");
+}catch(e){
+document.getElementById("status").innerText=e.message;
+}
+}
+
+function renderManage(){
+if(!auth.currentUser)return;
+document.getElementById("manage").innerHTML=allPosts.map(p=>`
+<div class="post">
+<b>${escapeHTML(p.title)}</b>
+<button class="danger" onclick="deletePost('${p.id}')">Delete</button>
+</div>`).join("");
+}
+
+async function deletePost(id){
+if(!auth.currentUser)return;
+if(confirm("Delete this post?")){
+try{await db.collection("updates").doc(id).delete();}
+catch(e){alert(e.message);}
+}
+}
+
+function logoutAdmin(){auth.signOut();}
+</script>
+</body>
+</html>
+
