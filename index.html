@@ -4,234 +4,400 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sarkari Form Kendra | Latest Jobs & Results</title>
-<meta name="description" content="Latest Government Jobs, Online Forms, Admit Cards and Results.">
+
+<title>Sarkari Form Kendra | सरकारी नौकरी और ऑनलाइन फॉर्म</title>
+
+<meta name="description" content="Sarkari Form Kendra पर सरकारी नौकरी, हरियाणा भर्ती, ऑनलाइन फॉर्म, रिजल्ट, एडमिट कार्ड और सरकारी योजनाओं की जानकारी प्राप्त करें।">
+
+<meta name="keywords" content="Sarkari Form Kendra, Haryana Jobs, Sarkari Naukri, Online Form, Admit Card, Result">
+
+<meta name="author" content="Sarkari Form Kendra">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://mohitcsc98.github.io/sarkaricsckendra/">
+
+<!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
+<!-- अपना Google Verification Meta Tag यहां Paste करें -->
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f3f7ff;color:#18365f}
-header{background:#174a91;color:white;padding:20px;text-align:center}
-header h1{margin:0;font-size:27px}
-header p{margin:7px 0 0}
-nav{background:white;padding:12px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;box-shadow:0 2px 8px #ddd}
-nav button{border:0;background:#e8f1ff;color:#174a91;padding:10px 14px;border-radius:6px;cursor:pointer;font-weight:bold}
-nav button:hover{background:#174a91;color:white}
-.hero{background:linear-gradient(120deg,#174a91,#3180d4);color:white;text-align:center;padding:40px 15px}
-.hero h2{font-size:30px;margin:0 0 12px}
-.search{width:min(550px,95%);padding:13px;border:0;border-radius:7px;margin-top:12px}
-.container{max-width:1100px;margin:25px auto;padding:0 15px}
-h2.section{border-left:5px solid #174a91;padding-left:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
-.card{background:white;padding:18px;border-radius:10px;box-shadow:0 3px 12px #dce6f5}
-.card h3{margin-top:0;color:#174a91}
-.card a{display:inline-block;background:#174a91;color:white;padding:9px 13px;border-radius:5px;text-decoration:none;margin-top:10px}
-footer{background:#10376d;color:white;text-align:center;padding:22px;margin-top:40px}
-#admin{display:none;background:white;padding:20px;border-radius:10px;margin-top:20px}
-input,textarea,select{width:100%;padding:11px;margin:7px 0 13px;border:1px solid #ccd7e8;border-radius:5px}
-.action{background:#174a91;color:white;border:0;padding:11px 18px;border-radius:5px;cursor:pointer}
-.danger{background:#b42318;color:white;border:0;padding:8px;border-radius:5px;cursor:pointer}
-.post{border-bottom:1px solid #ddd;padding:10px 0}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#f3f7fc;
+color:#222;
+}
+
+header{
+background:#0756b5;
+color:white;
+padding:25px 12px;
+text-align:center;
+}
+
+header h1{
+font-size:29px;
+}
+
+header p{
+margin-top:8px;
+}
+
+nav{
+background:white;
+padding:14px 8px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 2px 8px #ddd;
+}
+
+nav a{
+color:#0756b5;
+text-decoration:none;
+margin:7px;
+font-weight:bold;
+font-size:14px;
+display:inline-block;
+}
+
+nav a:hover{
+color:#ff6600;
+}
+
+.hero{
+background:#e1efff;
+text-align:center;
+padding:40px 15px;
+}
+
+.hero h2{
+color:#0756b5;
+margin-bottom:12px;
+}
+
+.hero p{
+line-height:1.7;
+}
+
+.whatsapp{
+background:#eafff0;
+padding:22px 10px;
+text-align:center;
+}
+
+.whatsapp-btn{
+display:inline-block;
+background:#25D366;
+color:white;
+padding:14px 25px;
+border-radius:30px;
+text-decoration:none;
+font-size:17px;
+font-weight:bold;
+box-shadow:0 3px 8px #ccc;
+}
+
+.whatsapp-btn:hover{
+background:#128C7E;
+}
+
+.whatsapp p{
+margin-top:10px;
+font-size:14px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
+
+.section-title{
+color:#0756b5;
+margin:28px 0 16px;
+border-left:5px solid #0756b5;
+padding-left:10px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:16px;
+}
+
+.card{
+background:white;
+padding:22px 15px;
+border-radius:10px;
+box-shadow:0 2px 8px #ddd;
+text-align:center;
+}
+
+.card h3{
+color:#0756b5;
+margin-bottom:12px;
+}
+
+.card p{
+font-size:14px;
+margin-bottom:15px;
+line-height:1.6;
+}
+
+.btn{
+display:inline-block;
+background:#0756b5;
+color:white;
+padding:10px 18px;
+border-radius:5px;
+text-decoration:none;
+font-size:14px;
+}
+
+.btn:hover{
+background:#003d85;
+}
+
+.notice{
+background:white;
+padding:18px;
+border-radius:8px;
+line-height:2;
+box-shadow:0 2px 8px #ddd;
+}
+
+footer{
+background:#073b78;
+color:white;
+text-align:center;
+padding:28px 10px;
+margin-top:30px;
+line-height:2;
+}
+
+footer a{
+color:white;
+}
+
+@media(max-width:600px){
+header h1{
+font-size:23px;
+}
+nav a{
+font-size:12px;
+margin:5px;
+}
+.hero h2{
+font-size:21px;
+}
+}
 </style>
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
-<h1>🇮🇳 SARKARI FORM KENDRA</h1>
-<p>Latest Jobs | Online Forms | Results | Admit Cards</p>
+<h1>SARKARI FORM KENDRA</h1>
+<p>सरकारी नौकरी और ऑनलाइन फॉर्म की सही जानकारी</p>
 </header>
 
+<!-- NAVIGATION -->
 <nav>
-<button onclick="showCategory('All')">Home</button>
-<button onclick="showCategory('Latest Jobs')">Latest Jobs</button>
-<button onclick="showCategory('Online Form')">Online Form</button>
-<button onclick="showCategory('Offline Form')">Offline Form</button>
-<button onclick="showCategory('Admit Card')">Admit Card</button>
-<button onclick="showCategory('Result')">Results</button>
-<button onclick="showCategory('Answer Key')">Answer Key</button>
-<button onclick="showCategory('Syllabus')">Syllabus</button>
-<button onclick="document.getElementById('login').style.display='block'">Admin Login</button>
+<a href="#home">Home</a>
+<a href="#jobs">Latest Jobs</a>
+<a href="#online">Online Form</a>
+<a href="#result">Result</a>
+<a href="#admit">Admit Card</a>
+<a href="#links">Important Links</a>
+<a href="#contact">Contact</a>
 </nav>
 
-<section class="hero">
-<h2>Find Your Dream Government Job</h2>
-<p>हर सरकारी नौकरी की जानकारी एक ही जगह</p>
-<input class="search" id="search" placeholder="Search Jobs, Results..." oninput="renderPosts()">
+<!-- WHATSAPP CHANNEL -->
+<section class="whatsapp">
+<a class="whatsapp-btn"
+href="https://whatsapp.com/channel/0029Vb9Guk9EQIafZVfczr2Y"
+target="_blank"
+rel="noopener noreferrer">
+🟢 Join My WhatsApp Channel
+</a>
+
+<p>सरकारी नौकरी, रिजल्ट और नए अपडेट पाने के लिए हमारा WhatsApp Channel Join करें।</p>
+</section>
+
+<!-- HOME -->
+<section class="hero" id="home">
+<h2>Welcome to Sarkari Form Kendra</h2>
+<p>सरकारी भर्ती, ऑनलाइन फॉर्म, रिजल्ट और एडमिट कार्ड की जानकारी एक ही जगह।</p>
 </section>
 
 <div class="container">
-<h2 class="section" id="heading">Latest Updates</h2>
-<div class="grid" id="posts">
-<p>Loading...</p>
+
+<!-- LATEST UPDATE -->
+<h2 class="section-title">📢 Latest Updates</h2>
+
+<div class="notice">
+<p>✅ Sarkari Form Kendra पर आपका स्वागत है।</p>
+<p>✅ यहां सरकारी नौकरी और ऑनलाइन आवेदन से संबंधित जानकारी प्राप्त करें।</p>
+<p>✅ नए अपडेट के लिए हमारा WhatsApp Channel Join करें।</p>
 </div>
 
-<div id="login" style="display:none" class="card">
-<h2>Admin Login</h2>
-<input type="email" id="email" placeholder="Admin Email">
-<input type="password" id="password" placeholder="Password">
-<button class="action" onclick="loginAdmin()">Login</button>
-<p id="loginStatus"></p>
+<!-- JOBS -->
+<h2 class="section-title" id="jobs">Latest Government Jobs</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Latest Government Jobs</h3>
+<p>नई सरकारी भर्तियों की जानकारी।</p>
+<a class="btn" href="https://www.ncs.gov.in/" target="_blank">View Jobs</a>
 </div>
 
-<div id="admin">
-<h2>Admin Dashboard</h2>
-<p>नई भर्ती या अपडेट जोड़ें</p>
-<input id="title" placeholder="Post Title">
-<select id="category">
-<option>Latest Jobs</option>
-<option>Online Form</option>
-<option>Offline Form</option>
-<option>Admit Card</option>
-<option>Result</option>
-<option>Answer Key</option>
-<option>Syllabus</option>
-</select>
-<input id="lastDate" placeholder="Last Date (e.g. 30-11-2026)">
-<input id="qualification" placeholder="Qualification">
-<textarea id="description" placeholder="Post Details"></textarea>
-<input id="link" type="url" placeholder="Official Website Link">
-<button class="action" onclick="addPost()">Publish Post</button>
-<button class="action" onclick="logoutAdmin()">Logout</button>
-<p id="status"></p>
-<h3>Manage Posts</h3>
-<div id="manage"></div>
-</div>
+<div class="card">
+<h3>Haryana Jobs</h3>
+<p>हरियाणा की सरकारी नौकरियों की जानकारी।</p>
+<a class="btn" href="https://www.hssc.gov.in/" target="_blank">Official Website</a>
 </div>
 
+<div class="card">
+<h3>SSC Recruitment</h3>
+<p>SSC की नई भर्तियों की जानकारी।</p>
+<a class="btn" href="https://ssc.gov.in/" target="_blank">Official Website</a>
+</div>
+
+<div class="card">
+<h3>UPSC Recruitment</h3>
+<p>UPSC भर्ती की जानकारी।</p>
+<a class="btn" href="https://upsc.gov.in/" target="_blank">Official Website</a>
+</div>
+
+</div>
+
+<!-- ONLINE FORM -->
+<h2 class="section-title" id="online">Online Forms</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Haryana Saral</h3>
+<p>हरियाणा की ऑनलाइन सरकारी सेवाएं।</p>
+<a class="btn" href="https://saralharyana.gov.in/" target="_blank">Apply Online</a>
+</div>
+
+<div class="card">
+<h3>Family ID</h3>
+<p>Family ID से संबंधित सेवाएं।</p>
+<a class="btn" href="https://meraparivar.haryana.gov.in/" target="_blank">Open Website</a>
+</div>
+
+<div class="card">
+<h3>Income Tax</h3>
+<p>आयकर विभाग की आधिकारिक वेबसाइट।</p>
+<a class="btn" href="https://www.incometax.gov.in/" target="_blank">Open Website</a>
+</div>
+
+</div>
+
+<!-- RESULT -->
+<h2 class="section-title" id="result">Latest Results</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>HSSC Results</h3>
+<p>हरियाणा भर्ती के परिणाम।</p>
+<a class="btn" href="https://www.hssc.gov.in/" target="_blank">Check Result</a>
+</div>
+
+<div class="card">
+<h3>SSC Results</h3>
+<p>SSC परीक्षा के परिणाम।</p>
+<a class="btn" href="https://ssc.gov.in/" target="_blank">Check Result</a>
+</div>
+
+</div>
+
+<!-- ADMIT CARD -->
+<h2 class="section-title" id="admit">Admit Card</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>HSSC Admit Card</h3>
+<p>हरियाणा परीक्षा के एडमिट कार्ड।</p>
+<a class="btn" href="https://www.hssc.gov.in/" target="_blank">Download</a>
+</div>
+
+<div class="card">
+<h3>SSC Admit Card</h3>
+<p>SSC परीक्षा के एडमिट कार्ड।</p>
+<a class="btn" href="https://ssc.gov.in/" target="_blank">Download</a>
+</div>
+
+</div>
+
+<!-- IMPORTANT LINKS -->
+<h2 class="section-title" id="links">Important Links</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>HSSC</h3>
+<a class="btn" href="https://www.hssc.gov.in/" target="_blank">Visit Website</a>
+</div>
+
+<div class="card">
+<h3>SSC</h3>
+<a class="btn" href="https://ssc.gov.in/" target="_blank">Visit Website</a>
+</div>
+
+<div class="card">
+<h3>UPSC</h3>
+<a class="btn" href="https://upsc.gov.in/" target="_blank">Visit Website</a>
+</div>
+
+<div class="card">
+<h3>Employment News</h3>
+<a class="btn" href="https://www.employmentnews.gov.in/" target="_blank">Visit Website</a>
+</div>
+
+</div>
+
+<!-- CONTACT -->
+<h2 class="section-title" id="contact">Contact Us</h2>
+
+<div class="card">
+<h3>Sarkari Form Kendra</h3>
+<p>वेबसाइट से संबंधित जानकारी और सुझाव के लिए संपर्क करें।</p>
+<a class="btn" href="mailto:mayankhr82@gmail.com">Email Us</a>
+<br><br>
+<a class="whatsapp-btn"
+href="https://whatsapp.com/channel/0029Vb9Guk9EQIafZVfczr2Y"
+target="_blank"
+rel="noopener noreferrer">
+Join WhatsApp Channel
+</a>
+</div>
+
+</div>
+
+<!-- FOOTER -->
 <footer>
-© 2026 Sarkari Form Kendra | All Rights Reserved
+<h3>SARKARI FORM KENDRA</h3>
+<p>सरकारी नौकरी और ऑनलाइन फॉर्म की जानकारी</p>
+<p>© 2026 Sarkari Form Kendra. All Rights Reserved.</p>
+<p>यह एक निजी सूचना वेबसाइट है, सरकारी वेबसाइट नहीं।</p>
 </footer>
 
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-
-<script>
-const firebaseConfig = {
-apiKey: "AIzaSyA5i6t2gIQhJVu2E4YSoG8T9iIJr5xzJ0Q",
-authDomain: "sarkariformkendre.firebaseapp.com",
-projectId: "sarkariformkendre",
-storageBucket: "sarkariformkendre.firebasestorage.app",
-messagingSenderId: "851557797651",
-appId: "1:851557797651:web:71824466b97dbfe1a694e6",
-measurementId: "G-XJ6DP63K70"
-};
-
-firebase.initializeApp(firebaseConfig);
-const auth=firebase.auth();
-const db=firebase.firestore();
-
-let allPosts=[];
-let currentCategory="All";
-
-function escapeHTML(value){
-return String(value||"").replace(/[&<>"']/g,c=>({
-"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-}[c]));
-}
-
-function validLink(value){
-try{
-const u=new URL(value);
-return ["https:","http:"].includes(u.protocol)?u.href:"#";
-}catch(e){return "#";}
-}
-
-function showCategory(category){
-currentCategory=category;
-document.getElementById("heading").innerText=
-category==="All"?"Latest Updates":category;
-renderPosts();
-}
-
-db.collection("updates").orderBy("createdAt","desc")
-.onSnapshot(snapshot=>{
-allPosts=snapshot.docs.map(doc=>({id:doc.id,...doc.data()}));
-renderPosts();
-renderManage();
-},error=>{
-document.getElementById("posts").innerHTML=
-"<p>Database error. Firebase Rules check karein.</p>";
-console.error(error);
-});
-
-function renderPosts(){
-const q=document.getElementById("search").value.toLowerCase();
-const filtered=allPosts.filter(p=>
-(currentCategory==="All"||p.category===currentCategory)&&
-[p.title,p.description,p.qualification,p.category]
-.join(" ").toLowerCase().includes(q)
-);
-
-document.getElementById("posts").innerHTML=filtered.length?
-filtered.map(p=>`
-<div class="card">
-<h3>${escapeHTML(p.title)}</h3>
-<p><b>Category:</b> ${escapeHTML(p.category)}</p>
-<p><b>Last Date:</b> ${escapeHTML(p.lastDate||"Not specified")}</p>
-<p><b>Qualification:</b> ${escapeHTML(p.qualification||"See notification")}</p>
-<p>${escapeHTML(p.description)}</p>
-<a href="${escapeHTML(validLink(p.link||p.officialLink||''))}" target="_blank" rel="noopener">Official Link ↗</a>
-</div>`).join(""):"<p>No updates available.</p>";
-}
-
-function loginAdmin(){
-const email=document.getElementById("email").value.trim();
-const password=document.getElementById("password").value;
-auth.signInWithEmailAndPassword(email,password)
-.then(()=>document.getElementById("loginStatus").innerText="Login Successful")
-.catch(e=>document.getElementById("loginStatus").innerText=e.message);
-}
-
-auth.onAuthStateChanged(user=>{
-document.getElementById("admin").style.display=user?"block":"none";
-document.getElementById("login").style.display=user?"none":"none";
-if(user)renderManage();
-});
-
-async function addPost(){
-const user=auth.currentUser;
-if(!user){alert("Please login first");return;}
-
-const title=document.getElementById("title").value.trim();
-const link=validLink(document.getElementById("link").value.trim());
-if(!title||link==="#"){alert("Title aur valid official link bharein");return;}
-
-try{
-await db.collection("updates").add({
-title:title,
-category:document.getElementById("category").value,
-lastDate:document.getElementById("lastDate").value,
-qualification:document.getElementById("qualification").value,
-description:document.getElementById("description").value,
-link:link,
-createdAt:firebase.firestore.FieldValue.serverTimestamp(),
-createdBy:user.uid
-});
-document.getElementById("status").innerText="Post Published Successfully!";
-["title","lastDate","qualification","description","link"].forEach(id=>document.getElementById(id).value="");
-}catch(e){
-document.getElementById("status").innerText=e.message;
-}
-}
-
-function renderManage(){
-if(!auth.currentUser)return;
-document.getElementById("manage").innerHTML=allPosts.map(p=>`
-<div class="post">
-<b>${escapeHTML(p.title)}</b>
-<button class="danger" onclick="deletePost('${p.id}')">Delete</button>
-</div>`).join("");
-}
-
-async function deletePost(id){
-if(!auth.currentUser)return;
-if(confirm("Delete this post?")){
-try{await db.collection("updates").doc(id).delete();}
-catch(e){alert(e.message);}
-}
-}
-
-function logoutAdmin(){auth.signOut();}
-</script>
 </body>
 </html>
-
